@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:footer/footer.dart';
+import 'package:device_preview/device_preview.dart';
+
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      // DevicePreview(
+          // enabled: !kReleaseMode,
+          // builder: (context) =>
+              MyApp(),
+      // ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,21 +18,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // locale: DevicePreview.locale(context), // Add the locale here
+      // builder: DevicePreview.appBuilder, // Add the builder here
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -83,170 +81,207 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    double screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-
-    print(screenHeight);
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    // double key = GlobalKey();
+    // double height = key.currentContext.size.height;
 
     return Scaffold(
         backgroundColor: const Color(0xffEA9178),
         body: Column(
           children: [
-            Expanded(
-              flex: 2,
-              child: Container(
-                color: const Color(0xffF7C6B9),
-                child: Stack(
-                  children: [
-                    Positioned(
-                        top: 0,
-                        width: screenWidth,
-                        height: screenHeight / 3,
-                        child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.all(15.0),
-                            color: const Color(0xffF7C6B9),
-                            child: SizedBox(
-                              width: screenWidth / 2,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('803',
-                                      style: TextStyle(
-                                          fontSize: 30.0,
-                                          fontWeight: FontWeight.bold)),
-                                  Text(
-                                      'Americans are taking this Challenge with you today!',
-                                      style: TextStyle(
-                                        fontSize: 15.0,
-                                      )),
-                                ],
-                              ),
-                            ))),
-                    Positioned(
-                        bottom: 0,
-                        width: screenWidth,
-                        height: screenHeight / 3,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                            BorderRadius.only(topRight: Radius.circular(120)),
-                          ),
-                          width: screenWidth / 1.2,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Your personal goal for today:'),
-                              Text(
-                                'Eat at least one meatless meal',
-                                style: TextStyle(
-                                    color: const Color(0xff60B05C),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              // raisedButton
-                            ],
-                          ),
-                        )),
-                    Positioned(
-                        width: 150.0,
-                        height: 80.0,
-                        top: (screenHeight / 3) - 40.0,
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Text('Day 1',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40.0,
-                              )),
-                          decoration: BoxDecoration(
-                            color: const Color(0xff60B05C),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20)),
-                          ),
-                        )),
-                    Positioned(
-                        width: screenWidth / 2,
-                        height: 100.0,
-                        top: 0,
-                        right: 0,
-                        child: Container(
+            Container(
+              height: screenHeight / 1.5,
+              color: const Color(0xfffcd4bb),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                      top: 0,
+                      width: screenWidth,
+                      height: screenHeight / 3,
+                      child: Container(
+                          alignment: Alignment.centerLeft,
                           padding: EdgeInsets.all(15.0),
-                          child: SafeArea(
+                          color: const Color(0xfffcd4bb),
+                          child: SizedBox(
+                            width: screenWidth / 2,
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'Your Challenge Group:',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text('Sept 2020',
+                                Text('803',
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold))
+                                        fontSize: 30.0,
+                                        fontWeight: FontWeight.bold)),
+                                Text(
+                                    'Americans are taking this Challenge with you today!',
+                                    style: TextStyle(
+                                      fontSize: 15.0,
+                                    )),
                               ],
                             ),
+                          ))),
+                  Positioned(
+                    bottom: 0,
+                    width: screenWidth,
+                    height: screenHeight / 3,
+                    child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(15.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:
+                              BorderRadius.only(topRight: Radius.circular(100)),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            Text(
+                              'Your personal goal for today:',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w300
+                              ),
+                            ),
+                            Text(
+                              'Eat at least one meatless meal',
+                              style: TextStyle(
+                                color: const Color(0xff60B05C),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.0,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            RaisedButton(
+                              onPressed: () {},
+                              color: Colors.blue.shade700,
+                              textColor: Colors.white,
+                              padding: EdgeInsets.all(15.0),
+                              child: Text("What to eat?", style: TextStyle(
+                                fontSize: 18.0
+                              ),),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            // raisedButton
+                            FlatButton(
+                                onPressed: (){},
+                                child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Dietician Desk',
+                                        style: TextStyle(
+                                            color: Colors.blue.shade900,
+                                            fontSize: 20.0),
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward,
+                                        color: Colors.blue.shade900,
+                                      )
+                                    ]))
+                          ],
+                        )),
+                  ),
+                  Positioned(
+                      width: 150.0,
+                      height: 60.0,
+                      top: (screenHeight / 3) - 30.0,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text('Day 1',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 40.0,
+                            )),
+                        decoration: BoxDecoration(
+                          color: const Color(0xff60B05C),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20)),
+                        ),
+                      )),
+                  Positioned(
+                      width: screenWidth / 2,
+                      height: 100.0,
+                      top: 0,
+                      right: 0,
+                      child: Container(
+                        padding: EdgeInsets.all(15.0),
+                        child: SafeArea(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Your Challenge Group:',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text('Sept 2020',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold))
+                            ],
                           ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xffEA9178),
-                            borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(40)),
-                          ),
-                        ))
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                  color: Colors.white,
-                  child: Container(
-                      padding: EdgeInsets.all(20.0),
-                      width: screenWidth,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.only(topLeft: Radius.circular(120)),
-                        color: const Color(0xffEA9178),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text('Daily Program',
-                              style:
-                              TextStyle(color: Colors.white, fontSize: 30.0)),
-                          SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
-                                  children: createButtons())),
-
-                        ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xffe3977d),
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(40)),
+                        ),
                       ))
+                ],
               ),
             ),
+            Container(
+                height: screenHeight / 3 - kBottomNavigationBarHeight,
+                color: Colors.white,
+                child: Container(
+                    padding: EdgeInsets.all(20.0),
+                    width: screenWidth,
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(120)),
+                      color: const Color(0xffe3977d),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text('Daily Program',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 30.0)),
+                        SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: createButtons())),
+                      ],
+                    ))),
+            // ),
           ],
         ),
-
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.blue,
-            backgroundColor: const Color(0xffEA9178),
+            // key: GlobalKey(),
+            unselectedItemColor: Colors.white,
+            selectedItemColor: Colors.white,
+            backgroundColor: const Color(0xffe3977d),
             items: [
               BottomNavigationBarItem(
                 backgroundColor: const Color(0xffEA9178),
@@ -265,10 +300,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Icons.notifications_none_rounded,
                 ),
               ),
-            ]
-        )
-    );
+            ]));
   }
-
-
 }
